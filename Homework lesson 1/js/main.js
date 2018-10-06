@@ -1,9 +1,10 @@
 'use strict';
 
-var money= prompt('Ваш бюджет на месяц?', ''),
+let money= prompt('Ваш бюджет на месяц?', ''),
     time=prompt('Введите дату в формате YYYY-MM-DD', ''),
     timeData,
-    budget=money;
+    budget=money,
+    expenses;
        
 let appData = {
         budget:money,
@@ -18,11 +19,12 @@ let answerOn1Question=prompt('Введите обязательную стать
     answerOn4Question=prompt('Во сколько обойдется?','');
 
 console.log(money);
-//console.log(time);
-//console.log(appData);
+console.log(time);
+console.log(appData);
+
 alert ('Ваш бюджет на 1 день составит: ' + budget/30+' рублей');
 
-
+console.log(expenses);
 
         
 
