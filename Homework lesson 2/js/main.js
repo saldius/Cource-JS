@@ -1,3 +1,4 @@
+
 'use strict';
 
 let money= prompt('Ваш бюджет на месяц?', ''),
@@ -18,7 +19,7 @@ for (let=i=0; i<2; i++) {
          b=prompt('Во сколько обойдется?','');
     if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null 
         && a!='' && b!=''&& a.lenght <50) {
-        consol.log("done");
+        console.log("done");
         appData.expenses[a]=b;        
     } else {
 
@@ -27,32 +28,32 @@ for (let=i=0; i<2; i++) {
 */
 
 //  цикл с while вместо for
-let=i=0;
+let i=0;
 
 while (i<3);
     let a=prompt('Введите обязательную статью расходов в этом месяце',''),
          b=prompt('Во сколько обойдется?','');
          i++;  
-    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null 
-        && a!='' && b!=''&& a.lenght <50) {
-        consol.log("done");
+    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null  &&
+       a!='' && b!=''&& a.lenght <50) {
+        console.log("done");
         appData.expenses[a]=b; 
     }
-}
+
 
 //цикл  do-while
-let=i=0;
-do {
+i=0;
+do { 
     let a=prompt('Введите обязательную статью расходов в этом месяце',''),
          b=prompt('Во сколько обойдется?','');
          i++;  
-    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null 
-        && a!='' && b!=''&& a.lenght <50) {
-        consol.log("done");
+    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null && 
+         a!='' && b!=''&& a.lenght <50) {
+        console.log("done");
         appData.expenses[a]=b; 
-    }   
+    }  
 }
-while (i<3)
+while (i<3);
 
 appData.moneyPerDay = appData.budget / 30;
 
@@ -67,13 +68,3 @@ if(appData.moneyPerDay <100){
 } else {
     console.log("Произошла ошибка");
 }
-
-
-
-
-
-
-        
-
-
-
