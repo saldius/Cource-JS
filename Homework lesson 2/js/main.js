@@ -1,8 +1,8 @@
 
 'use strict';
 
-let money= prompt('Ваш бюджет на месяц?', ''),
-  time=prompt('Введите дату в формате YYYY-MM-DD', ''),
+let money = prompt("Ваш бюджет на месяц?", ''),
+    time=prompt("Введите дату в формате YYYY-MM-DD", ''),
     timeData;
   
 let appData = {
@@ -13,47 +13,51 @@ let appData = {
         income:[],
         saving:false
     };
-/*    
-for (let=i=0; i<2; i++) {
-     let a=prompt('Введите обязательную статью расходов в этом месяце',''),
-         b=prompt('Во сколько обойдется?','');
-    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null 
-        && a!='' && b!=''&& a.lenght <50) {
-        console.log("done");
-        appData.expenses[a]=b;        
-    } else {
+    
+//for (let=i=0; i<2; i++) {
+//     let a=prompt('Введите обязательную статью расходов в этом месяце',''),
+//         b=prompt('Во сколько обойдется?','');
+//    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null 
+//       && a!='' && b!=''&& a.lenght <50) {
+//        console.log("done");
+//        appData.expenses[a]=b;        
+//    } else {
+//
+//    }
+//}
 
-    }
-}
-*/
 
 //  цикл с while вместо for
-let i=0;
-
-while (i<3);
-    let a=prompt('Введите обязательную статью расходов в этом месяце',''),
-         b=prompt('Во сколько обойдется?','');
-         i++;  
-    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null  &&
-       a!='' && b!=''&& a.lenght <50) {
-        console.log("done");
-        appData.expenses[a]=b; 
-    }
-
+/*
+ let i = 0;
+   while(i < 2) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ""),
+    b = prompt("Во сколько обойдётся?", "");
+    if ( (typeof(a))=== 'string' && (typeof(a)) != null && (typeof(b)) != null  &&
+    a != '' && b != '' && a.length < 50 ) {
+    console.log("done");
+    appData.expenses[a] = b;
+    i++;
+   } else {
+    console.log("error");
+    i--;
+   }
+  }
+  */ 
 
 //цикл  do-while
-i=0;
+let i=0;
 do { 
     let a=prompt('Введите обязательную статью расходов в этом месяце',''),
          b=prompt('Во сколько обойдется?','');
          i++;  
-    if ( (typeof (a))=== 'string' && (typeof (a)) !=null && (typeof (b)) !=null && 
-         a!='' && b!=''&& a.lenght <50) {
+    if ( (typeof (a))=== 'string' && (typeof (a)) !=null &&
+     (typeof (b)) !=null && a!='' && b!=''&& a.lenght <50) {
         console.log("done");
         appData.expenses[a]=b; 
     }  
 }
-while (i<3);
+while (i<2);
 
 appData.moneyPerDay = appData.budget / 30;
 
