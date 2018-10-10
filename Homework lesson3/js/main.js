@@ -37,19 +37,20 @@ function chooseExpenses() {
 chooseExpenses();
 
 function chooseOptExpenses() {
-    for (let j = 0; j <3; j++){
-    let x= +prompt("Статья необязательных расходов?", '');
-   
-    appData.optionalExpenses[j]=x;
-   }
+    for (let j = 1; j < 3; j++) {
+        let x= prompt("Статья необязательных расходов?", ""); 
+        appData.optionalExpenses[j] = x;
+    }
 } 
 chooseOptExpenses();
+console.log(appData.optionalExpenses);
 
-function detectDayBudget (a,b) {      
-     return ( a / b );
+function detectDayBudget () { 
+     appData.moneyPerDay = (appData.budget / 30);    
+     alert ('Ежедневный бюджет: ' + appData.moneyPerDay +' рублей');
  }  
-appData.moneyPerDay = detectDayBudget(appData.budget , 30); 
-alert ('Ежедневный бюджет: ' + appData.moneyPerDay+' рублей');
+ 
+
 
 function detectLevel () {
     if(appData.moneyPerDay <100){
