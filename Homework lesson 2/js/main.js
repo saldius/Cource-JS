@@ -56,7 +56,7 @@ do {
          i++;
     if ( (typeof(a))=== 'string' && (typeof(a)) != null && (typeof(b)) != null  &&
          a != '' && b != '' && a.length < 50 ) {
-         console.log("done");
+         console.log("done");git status
          appData.expenses[a] = b;  
     } else {
      i--;
