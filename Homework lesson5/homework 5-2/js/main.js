@@ -1,19 +1,19 @@
 
 let btn_start=document.getElementById('start'),
-    budgetValue=document.getElementsByClassName('budget-value'),
-    daybudgetValue=document.getElementsByClassName('daybudget-value'),
-    levelValue=document.getElementsByClassName('level-value'),
-    expensesValue = document.getElementsByClassName('expenses-value'),
-    optionalexpensesValue = document.getElementsByClassName('optionalexpenses-value'),
-    incomeValue = document.getElementsByClassName('income-value'),
-    monthsavingsValue = document.getElementsByClassName('monthsavings-value'),
-    yearsavingsValue = document.getElementsByClassName('yearsavings-value'),
+    budgetValue=document.getElementsByClassName('budget-value')[0],,
+    dayBudgetValue=document.getElementsByClassName('daybudget-value'[0],,
+    levelValue=document.getElementsByClassName('level-value')[0],,
+    expensesValue = document.getElementsByClassName('expenses-value')[0],,
+    optionalExpensesValue = document.getElementsByClassName('optionalexpenses-value')[0],,
+    incomeValue = document.getElementsByClassName('income-value')[0],,
+    monthSavingsValue = document.getElementsByClassName('monthsavings-value')[0],,
+    yearsavingsValue = document.getElementsByClassName('yearsavings-value')[0],,
     expensesItem = document.getElementsByClassName('expenses-item'),
     expensesItemBtn = document.getElementsByTagName('button')
-    optionalexpensesBtn = document.getElementsByTagName('button'),
-    countBudgetBtn = document.getElementsByTagName('button'),
-    optionalexpensesItem = document.querySelectorAll('.optionalexpenses-item'),
-    income= document.querySelector('#income'), 
+    optionalexpensesBtn = document.getElementsByTagName('button')[1],,
+    countBtn = document.getElementsByTagName('button')[2],,
+    optionalExpensesBtn = document.querySelectorAll('.optionalexpenses-item'),
+    incomeItem= document.querySelector('#income'), 
     checksavings= document.querySelector('.checksavings'),
     chooseSum= document.querySelector('.choose-sum'),
     choosePercent= document.querySelector('.choose-percent'),
@@ -23,13 +23,13 @@ let btn_start=document.getElementById('start'),
 
 console.log (btn_start);
 console.log(budgetValue);   
-console.log(daybudgetValue); 
+console.log(dayBudgetValue); 
 console.log(levelValue);
 console.log(expensesValue);
-console.log(optionalexpensesValue);
+console.log(optionalExpensesValue);
 console.log(incomeValue);
-console.log(monthsavingsValue);
-console.log(yearsavingsValue);
+console.log(monthSavingsValue);
+console.log(yearSavingsValue);
 
 console.log(expensesItem[0]);
 console.log(expensesItem[1]);
@@ -37,14 +37,14 @@ console.log(expensesItem[2]);
 console.log(expensesItem[3]);
 
 console.log(expensesItemBtn[0]);
-console.log(optionalexpensesBtn[1]);
-console.log(countBudgetBtn[2]);
+console.log(optionalExpensesBtn[1]);
+console.log(countBtn[2]);
 
 console.log(optionalexpensesItem[0]);
 console.log(optionalexpensesItem[1]);
 console.log(optionalexpensesItem[2]);
 
-console.log(income);
+console.log(incomeItem);
 console.log(checksavings);
 console.log(chooseSum);
 console.log(choosePercent);
