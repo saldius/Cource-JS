@@ -24,7 +24,9 @@ let btn_start=document.getElementById('start'),
 
 let money, time;
 
-
+expensesBtn.disabled =  true;
+optionalExpensesBtn.disabled =  true; 
+countBtn.disabled =  true;
 
 startBtn=addEventListener('click', function() {
     time = prompt("Введите дату в формате YYYY-MM-DD", '');
@@ -39,6 +41,9 @@ startBtn=addEventListener('click', function() {
     yearValue.value = newDate(Date.parse(time)).getFullYear(),
     monthValue.value = newDate(Date.parse(time)).getMonth() + 1,
     dayValue.value = newDate(Date.parse(time)).getDate();
+    expensesBtn.disabled = false;
+    optionalExpensesBtn.disabled = false;
+    countBtn.disabled = false;
 });
 
 expensesBtn.addEventListener('click', function() {
@@ -56,7 +61,7 @@ expensesBtn.addEventListener('click', function() {
             i = i-1;
         }
     }  
-
+    expensesValue.textContent = sum;
 });
 
 optionalExpensesBtn.addEventListener('click', function() {
@@ -70,10 +75,7 @@ optionalExpensesBtn.addEventListener('click', function() {
 });
 
 countBtn.addEventListener('click', function() {
-
-    if (appData.budget  != undefined) {
-
-    
+    if (appData.budget  != undefined) {    
        appData.moneyPerDay = (appData.budget / 30).toFixed(); 
        dayBudgetValue.textContent = appData.moneyPerDay;
 
@@ -93,7 +95,7 @@ countBtn.addEventListener('click', function() {
 
 incomeItem.addEventListener('input', function() {
     let items = incomeItem.value;
-    //prompt("Что принесет дополнительный доход? (Перечислете через запятую)", "");
+    
     appData.income = items.split(', ');
     incomeValue.textContent = appData.income;
 
@@ -109,12 +111,12 @@ checkSavings.addEventListener('click', function() {
 
 sumValue.addEventListener('input', function() {
    if( appData.saving == true){
-        let sum = +sumValue.value,
+       
+        let sum = +sumValue.value -(+expensesValue.textContent),
             percent = +percentValue.value;
 
-        appData.monthIncome = sum/100/12*percent;
-        appData.yearIncome = sum/100*percent;
-
+        appData.monthIncome = (sum-(+expensesValue.textContent))/100/12*percent;
+        appData.yearIncome = (sum-(+expensesValue.textContent))/100*percent;
         monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
         yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
    }
@@ -123,11 +125,15 @@ sumValue.addEventListener('input', function() {
 
 percentValue.addEventListener('input', function() {
     if( appData.saving == true){
-        let sum = +sumValue.value,
+
+        let sum = +sumValue.value -(+expensesValue.textContent),
             percent = +percentValue.value;
 
         appData.monthIncome = sum/100/12*percent;
         appData.yearIncome = sum/100*percent;
+
+        appData.monthIncome = (sum-(+expensesValue.textContent))/100/12*percent;
+        appData.yearIncome = (sum-(+expensesValue.textContent))/100*percent;
 
         monthSavingsValue.textContent = appData.monthIncome.toFixed(1);
         yearSavingsValue.textContent = appData.yearIncome.toFixed(1);   
@@ -143,3 +149,9 @@ let appData = {
     timeData: time,
     saving: false,    
 };
+
+
+
+
+
+-
