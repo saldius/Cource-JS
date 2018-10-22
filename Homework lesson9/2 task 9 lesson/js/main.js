@@ -96,7 +96,6 @@
 
 	let more = document.querySelector('.more'),
 			overlay = document.querySelector('.overlay'),
-  //    infom = document.querySelector('.info'),
 			close = document.querySelector('.popup-close');
       
 	more.addEventListener('click', function() {
