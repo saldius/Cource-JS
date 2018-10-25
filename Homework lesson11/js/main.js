@@ -166,7 +166,7 @@
           if (request.readyState < 4 ) {                                   // когда запрос грузится
                statusMessage.innerHTML = message.loading;          
           } else if( request.readyState === 4 && request.status== 200) {
-               statusMessage.innerHTML = message.success ;               // 'Спасибо! Скоро мы с вами свяжемся ! ',
+               statusMessage.innerHTML = message.success;               // 'Спасибо! Скоро мы с вами свяжемся ! ',
           } else {
                statusMessage.innerHTML = message.failure;                // 'Что то пошло не так ...'
           }
@@ -208,11 +208,11 @@
 
      request.addEventListener('readystatechange ', function() {            
           if (request.readyState < 4 ) { 
-               statusMessage.innerHTML = message.loading;          
+               statusMessageContact.innerHTML = message.loading;          
           } else if( request.readyState === 4 && request.status== 200) {
-               statusMessage.innerHTML = message.success ;               
+               statusMessageContact.innerHTML = message.success;               
           } else {
-               statusMessage.innerHTML = message.failure;             
+               statusMessageContact.innerHTML = message.failure;             
           }
       }); 
     for (let i = 0; i < input.lenght; i++) {
