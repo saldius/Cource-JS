@@ -4,9 +4,9 @@
 
 		
   let tab = document.querySelectorAll('.info-header-tab'),
-      info = document.querySelector('.info'),
+      info = document.querySelector('.info-header'),
       tabContent = document.querySelectorAll('.info-tabcontent');
-
+      
      
   function hideTabContent(a) {
 	  for (let i = a; i < tabContent.length; i++) {
@@ -138,14 +138,6 @@
       contactInput = contactForm.getElementsByTagName('input'),     
       statusMessageContact = document.createElement('div');
 
-      input[0].addEventListener('input', function () {
-      input[0].value = input[0].value.replace(/^\d[0-9+() -]\d$/, '');
-      }); 
-      contactInput[1].addEventListener('input', function () {
-      contactInput[1].value = contactInput[1].value.replace(/^\d[0-9+() -]\d$/, '');  
-      });
-
-
      statusMessage.classList.add('status');
      statusMessageContact.classList.add('status');
 
@@ -180,7 +172,7 @@
         } //end postData
 
           function clearInput(){
-            for (let i = 0; i < input.lenght; i++) {   //чистим инпуты 
+            for (let i = 0; i < input.lenght; i++) {
               input[i].value = '';
             } 
           }        
@@ -190,8 +182,8 @@
           .catch(()=> statusMessage.innerHTML = message.failure)
           .then(clearInput);
 
-    }); //end function (event)
-  } //end sendForm
+    });
+  } 
    sendForm(form);
    sendForm(contactForm);
        
@@ -204,49 +196,45 @@
     dotsWrap = document.querySelector('.slider-dots') ,
     dots = document.querySelectorAll('.dot');
 
-  showSlides (slideIndex); //вызываем фунцию до ее до ее объявления, когда стр загружается мы показываем 1 слайд
+  showSlides (slideIndex);
 
-  function showSlides(n) {        //Функции показа слайдов 
+  function showSlides(n) {
 
-      if ( n > slides.length ) {  // проверка номера слайда
-          slideIndex = 1;         //уст на 1 слайд
+      if ( n > slides.length ) {  
+          slideIndex = 1;         
       }
 
-      if ( n < 1 ){                    //если листаем назад
-          slideIndex = slides.length; // устанавливаем в самую посл позицию
+      if ( n < 1 ){                    
+          slideIndex = slides.length;
       }
 
-      slides.forEach ((item) => item.style.display = 'none'); // переберем слайды и покажем тот который нужен
-        // for (let i=0; i<slides.length; i++){   второй старый привычный способ перебора циклом
-        //   slides[i].style.display = 'none';
-        // } 
-    
-      dots.forEach ((item) => item.classList.remove('dot-active')); // убираем activ с наших точек и ост на нужном слайде
-      slides[slideIndex - 1].style.display = 'block';//показываем тот слайд который нужен
-      dots[slideIndex - 1].classList.add('dot-active'); // показываем нужную точку - делаем активной
+      slides.forEach ((item) => item.style.display = 'none');
+      dots.forEach ((item) => item.classList.remove('dot-active')); 
+      slides[slideIndex - 1].style.display = 'block';
+      dots[slideIndex - 1].classList.add('dot-active'); 
 
   }
-//
-  function plusSlides(n){           // изменение параметра индекса
-      showSlides(slideIndex += n);  // новое полученое знач подст как аргумент функции
+
+  function plusSlides(n){          
+      showSlides(slideIndex += n);  
   }
 
-   function currentSlide(n){        // опр текущего слайда
-      showSlides(slideIndex = n);  // устан тек слайда
+   function currentSlide(n){       
+      showSlides(slideIndex = n);  
   }
 
-  prev.addEventListener('click', function() { // навигация назад
+  prev.addEventListener('click', function() {
       plusSlides (-1);
   });
 
-  next.addEventListener('click', function() { // навигация вперед
+  next.addEventListener('click', function() {
       plusSlides (1);
   });
 
-  dotsWrap.addEventListener('click', function(event) { // делегирование событий-проверяем тот 
-                                                      // элемент на который мы кликнулина определенные параметры и в соотв с этим что то делаем
-      for (let i=0; i < dots.length + 1; i++ ){       //
-          if (event.target.classList.contains('dot') && event.target == dots[i-1]){ // 
+  dotsWrap.addEventListener('click', function(event) {
+                                                      
+      for (let i=0; i < dots.length + 1; i++ ){       
+          if (event.target.classList.contains('dot') && event.target == dots[i-1]){
               currentSlide(i);
           }
       }
@@ -254,33 +242,33 @@
 
    // Calc
 
-  let persons = document.querySelectorAll('.counter-block-input')[0],  // количество людей
-      restDays = document.querySelectorAll('.counter-block-input')[1], // количество дней отдыха
-      place = document.getElementById('select'),                       // база на которой будут отдыхать люди
-      totalValue = document.getElementById('total'),                   // общая сумма нашей поездки
-      personsSum = 0,                                                  // переменная  кол-ва людей для расчета
-      daysSum=0,                                                       // 
-      total = 0;                                                       //
-      totalValue.innerHTML = 0;// передаем нолик на страницу
+  let persons = document.querySelectorAll('.counter-block-input')[0],
+      restDays = document.querySelectorAll('.counter-block-input')[1],
+      place = document.getElementById('select'),                       
+      totalValue = document.getElementById('total'),                   
+      personsSum = 0,                                                  
+      daysSum=0,                                                       
+      total = 0;                                                       
+      totalValue.innerHTML = 0;
      
-      persons.addEventListener('input', function() { //
-      persons.value = persons.value.replace(/\D/g,'');
+      persons.addEventListener('input', function() {
+      persons.value = persons.value.replace(/[^\d]/g,'');
 
     });
-      persons.addEventListener('change', function () { // вешаем обработчик на первый инпут
-        personsSum = +this.value;                      // записываем то что ввел пользователь
-                                                      //спомощью контекста вызова мы можем получить тот элемент с каким мы общаемся на котором происходит событие change
-                                                      // после того как мы получили значение мы производим арифм операции
-        total = (daysSum + personsSum)*4000;//узнаем общую стоимость поездки - кол-во людей на кол-во дней
+      persons.addEventListener('change', function () { 
+        personsSum = +this.value;                      
+                                                      
+        total = (daysSum + personsSum)*4000;
           if (restDays.value == '' || persons.value == ''|| persons.value == '0' || restDays.value == '0'){
-            totalValue.innerHTML = 0;                 // проверяем если заполнено только одно поле кол-во людей
+            totalValue.innerHTML = 0;
           } else {
-            totalValue.innerHTML = total; // если оба поля заполнены
+            let a = total;
+            totalValue.innerHTML = a * place.options[place.selectedIndex].value;
           }
       });
 
       restDays.addEventListener('input', function() {
-      restDays.value = restDays.value.replace(/\D/g,'');
+      restDays.value = restDays.value.replace(/[^\d]/g,'');
       });
 
       restDays.addEventListener('change', function(){
@@ -289,16 +277,17 @@
          if(persons.value == '' || restDays.value == '' || persons.value == '0' || restDays.value == '0') {
           totalValue.innerHTML = 0;
         } else {
-          totalValue.innerHTML = total;
+          let a = total;
+          totalValue.innerHTML = a * place.options[place.selectedIndex].value;
         }      
       });
 
        place.addEventListener('change', function() {
-        if (restDays.value == '' || persons.value == '' || persons.value == '0' || restDays.value == '0') { //полнены ли наши поля
+        if (restDays.value == '' || persons.value == '' || persons.value == '0' || restDays.value == '0') {
           totalValue.innerHTML = 0;
         } else {
-          let a = total; //передаем знач тотал во временную переменную 
-          totalValue.innerHTML = a * this.options[this.selectedIndex].value;// получение знач option из кода html
+          let a = total;
+          totalValue.innerHTML = a * this.options[this.selectedIndex].value;
         }
       });
 

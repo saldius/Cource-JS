@@ -1,10 +1,8 @@
 function tabs() {
-// tabs
-
-  let tab = document.querySelectorAll('.info-header-tab'),
-      info = document.querySelector('.info'),
+	let tab = document.querySelectorAll('.info-header-tab'),
+      info = document.querySelector('.info-header'),
       tabContent = document.querySelectorAll('.info-tabcontent');
-
+      
      
   function hideTabContent(a) {
 	  for (let i = a; i < tabContent.length; i++) {
@@ -36,7 +34,6 @@ function tabs() {
       } 
     }      
   }); 
-   
-
 }
- module.exports = tabs;
+
+module.exports = tabs;

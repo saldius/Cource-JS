@@ -1,7 +1,5 @@
-function forms() {
-//forms
-
-  let message = {
+function form(){
+	let message = {
       loading: 'Загрузка.....',
       success: 'Спасибо! Скоро мы с вами свяжемся ! ',
       failure: 'Что то пошло не так ...'
@@ -13,14 +11,6 @@ function forms() {
       contactForm = document.querySelector('#form'),
       contactInput = contactForm.getElementsByTagName('input'),     
       statusMessageContact = document.createElement('div');
-
-      input[0].addEventListener('input', function () {
-      input[0].value = input[0].value.replace(/^\d[0-9+() -]\d$/, '');
-      }); 
-      contactInput[1].addEventListener('input', function () {
-      contactInput[1].value = contactInput[1].value.replace(/^\d[0-9+() -]\d$/, '');  
-      });
-
 
      statusMessage.classList.add('status');
      statusMessageContact.classList.add('status');
@@ -56,7 +46,7 @@ function forms() {
         } //end postData
 
           function clearInput(){
-            for (let i = 0; i < input.lenght; i++) {   //чистим инпуты 
+            for (let i = 0; i < input.lenght; i++) {
               input[i].value = '';
             } 
           }        
@@ -66,11 +56,10 @@ function forms() {
           .catch(()=> statusMessage.innerHTML = message.failure)
           .then(clearInput);
 
-    }); //end function (event)
-  } //end sendForm
+    });
+  } 
    sendForm(form);
    sendForm(contactForm);
-
-
 }
- module.exports = forms;
+
+module.exports = form;

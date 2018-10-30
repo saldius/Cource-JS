@@ -1,8 +1,5 @@
-function timer() {
-
-// timer
-
-  let deadline = '2018-10-23';
+function timer(){
+	let deadline = '2018-10-23';
 
   function getTimeRemaining(endtime) {
   
@@ -51,8 +48,7 @@ function timer() {
         }
     }
   }
-  setClock('timer', deadline);  
-  
+  setClock('timer', deadline);
 }
 
- module.exports = timer;
+module.exports = timer;
