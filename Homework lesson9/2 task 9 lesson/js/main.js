@@ -17,7 +17,6 @@
 
   hideTabContent(1);
 
-
   function showTabContent(b) {
     if (tabContent[b].classList.contains('hide')) {
       tabContent[b].classList.remove('hide');
