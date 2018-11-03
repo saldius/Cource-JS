@@ -2,7 +2,7 @@
 	
 		'use strict';
 
-//
+//call modal window
 	let engineer_btn = document.querySelector('.popup_engineer_btn'),
 			phone_link = document.querySelector('.phone_link'), 
 			feedback = document.querySelector('.feedback_block'),	
@@ -33,6 +33,11 @@
 			engineer.style.display = 'none';
 			document.body.style.overflow = '';
 	});
+			window.addEventListener('click', function(e) {
+ 				if (e.target == engineer) {
+    			engineer.style.display = 'none';
+  			}
+	});
 			phone_link.addEventListener('click', function() {
 			popup.style.display = 'block';
 			document.body.style.overflow = 'hidden';
@@ -41,6 +46,11 @@
 			close_popup.addEventListener('click', function() {
 			popup.style.display = 'none';
 			document.body.style.overflow = '';
+	});
+			window.addEventListener('click', function(e) {
+ 				if (e.target == popup) {
+    			popup.style.display = 'none';
+  			}
 	});
 			feedback.addEventListener('click', function() {
 			popup.style.display = 'block';
@@ -55,78 +65,50 @@
 			calc.style.display = 'none';
 			document.body.style.overflow = '';
 	});
-			profile_btn.addEventListener('click', function() {
-			profile.style.display = 'block';
-			document.body.style.overflow = 'hidden';
+			window.addEventListener('click', function(e) {
+ 				if (e.target == calc) {
+    			calc.style.display = 'none';
+  			}
 	});
+//Timer
+	function getTimeRemaining(endtime) {
+  	let t = Date.parse(endtime) - Date.parse(new Date()),
+    	seconds = Math.floor((t / 1000) % 60),
+    	minutes = Math.floor((t / 1000 / 60) % 60),
+    	hours = Math.floor((t / (1000 * 60 * 60)) % 24),
+   	 	days = Math.floor(t / (1000 * 60 * 60 * 24));
+ 	 		return {
+    	'total': t,
+    	'days': days,
+    	'hours': hours,
+    	'minutes': minutes,
+    	'seconds': seconds
+  	};
+	}
 
-			close_profile.addEventListener('click', function() {
-			profile.style.display = 'none';
-			document.body.style.overflow = '';
-	});
+	function initializeClock(id, endtime) {
+  let clock = document.getElementById(id),
+    daysSpan = clock.querySelector('.days'),
+    hoursSpan = clock.querySelector('.hours'),
+    minutesSpan = clock.querySelector('.minutes'),
+    secondsSpan = clock.querySelector('.seconds');
 
-//Timer			
- let deadline = '2019-07-04';
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
 
-  function getTimeRemaining(endtime) {
-  
-    let t = Date.parse(endtime) - Date.parse(new Date()),
-      seconds = (Math.floor((t/1000) % 60)).toString(),
-      minutes = (Math.floor((t/1000/60) % 60)).toString(),
-      hours = (Math.floor( (t/(1000*60*60)) % 24 )).toString(),
-      days = (Math.floor( t/(1000*60*60*24))).toString();
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-      if (seconds.length < 2) {
-        seconds = '0' + seconds;  
-      }
-
-      if (minutes.length < 2) { 
-        minutes = '0' + minutes; 
-      } 
-
-      if (hours.length < 2) { 
-        hours = "0" + hours; 
-      }
-     	if  (days.length < 2) { 
-        days = "0" + days; 
-      }
-      return {
-        'total' : t,
-        'days' : days,
-        'hours' : hours,
-        'minutes' : minutes,
-        'seconds' : seconds
-      };
-  }
-  function setClock(id, endtime) {
-    let timer = document.getElementById(id),
-    		days = timer.querySelector('.days'),
-        hours = timer.querySelector('.hours'),
-        minutes = timer.querySelector('.minutes'),
-        seconds = timer.querySelector('.seconds'),
-        timeInterval = setInterval(updateClock, 1000);
-
-    function updateClock() {
-        let t = getTimeRemaining(endtime);
-        days.textContent = t.days;
-        hours.textContent = t.hours;
-        minutes.textContent = t.minutes;
-        seconds.textContent = t.seconds;
-
-        if (t.total <= 0){
-          clearInterval(timeInterval);
-          days.textContent = '00';
-          hours.textContent = '00';
-          minutes.textContent = '00';
-          seconds.textContent = '00';                   
-        }
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
     }
   }
-  setClock('timer', deadline);  
-  
+
+  	updateClock();
+  	var timeinterval = setInterval(updateClock, 1000);
+	}
+
+
 });
-
-
-		
-
-
