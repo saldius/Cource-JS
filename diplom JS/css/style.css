@@ -2,7 +2,7 @@
 /*Colors*/
 /*Basic settings*/
 html {
-  overflow-x: hidden;
+ /* overflow-x: hidden;*/
   font-size: 10px;
 }
 body {
@@ -314,7 +314,7 @@ textarea:focus {
   margin: 0 auto;
   margin-bottom: 2rem;
 }
-.glazing_block a {
+.glazing_block .active {
   font-size: 1.8rem;
   font-weight: 600;
   text-decoration: underline;
@@ -409,11 +409,19 @@ textarea:focus {
 .glazing .plastic,
 .glazing .french,
 .glazing .rise {
-  display: none;
-}
+  display:;
+} 
+
 .glazing a.active {
   text-decoration: none;
   color: #454545;
+  display: block;
+}
+.glazing.row_content.show{
+  display: block;
+}
+.glazing.row_content.hide {
+  display: none;
 }
 /*test*/
 /*.tabs li {
@@ -474,6 +482,13 @@ textarea:focus {
 .decoration_content {
   margin-top: 8rem;
 }
+
+.decoration_content_tab .hide{ 
+  display: none;
+}
+.decoration_content_tab .show{ 
+  display: block;
+}
 .decoration_content_material img {
   margin-top: 2.5rem;
 }
@@ -498,11 +513,11 @@ textarea:focus {
   font-style: normal;
   color: #000000;
 }
-/*
+
 .decoration .external,
 .decoration .rising,
 .decoration .roof {
-  display: none;
+  display: ; 
 }
 /*Our works*/
 .works {
@@ -525,9 +540,6 @@ textarea:focus {
 }
 .works a[data-fancybox="gallery"]:hover .lupa {
   opacity: 1;
-}
-.works.lupa {
-  opacity: 0.5;
 }
 /*Guarantees*/
 .guarantees {

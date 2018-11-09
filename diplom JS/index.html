@@ -133,31 +133,31 @@
 
         <!-- Slider -->
         <div class="glazing_slider">
-          <div class="glazing_block text-center wow fadeInUp">
+          <div data-tab="tree" class="glazing_block text-center wow fadeInUp active">
             <img src="img/glazing/icons/1.png" alt="#">
-            <a class="tree_link">Деревянное <br>остекление</a>
+            <a  class="tree link ">Деревянное <br>остекление</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.1s">
+          <div data-tab="aluminum" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.1s">
             <img src="img/glazing/icons/2.png" alt="#">
-            <a class="aluminum_link">Алюминиевое <br>остекление</a>
+            <a class="aluminum link">Алюминиевое <br>остекление</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.2s">
+          <div  data-tab="plastic" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.2s">
             <img src="img/glazing/icons/3.png" alt="#">
-            <a class="plastic_link active">Остекление <br>пластиковыми <br>рамами</a>
+            <a class="plastic link ">Остекление <br>пластиковыми <br>рамами</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.3s">
+          <div  data-tab="french" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.3s">
             <img src="img/glazing/icons/4.png" alt="#">
-            <a class="french_link">Французское <br>остекление <br>(панорамное)</a>
+            <a class="french link">Французское <br>остекление <br>(панорамное)</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.4s">
+          <div  data-tab="rise" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.4s">
             <img src="img/glazing/icons/5.png" alt="#">
-            <a class="rise_link">Остекление <br>с выносом</a>
+            <a class="rise link">Остекление <br>с выносом</a>
           </div>
         </div>
 
         <!-- Tree -->
-        <div class="row tree">
-
+        <div id="tree" class="row_content tree active" > 
+          
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
              <h3>Холодное</h3>
@@ -195,7 +195,7 @@
         </div> <!-- /Tree -->
 
         <!-- Aluminum -->
-        <div class="row aluminum">
+        <div id="aluminum"class="row_content aluminum"  >
 
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
@@ -234,7 +234,7 @@
         </div> <!-- /Aluminum -->
 
         <!-- Plastic -->
-        <div class="row plastic">
+        <div id="plastic" class="row_content plastic" >
 
           <div class="col-md-6 col-md-offset-3 no-padding">
             <div class="glazing_warm">
@@ -256,7 +256,7 @@
         </div> <!-- /Plastic -->
 
         <!-- French -->
-        <div class="row french">
+        <div id="french" class="row_content french"  >
 
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
@@ -295,7 +295,7 @@
         </div> <!-- /French -->
 
         <!-- Rise -->
-        <div class="row rise">
+        <div id="rise" class="row_content rise"  >
 
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
@@ -347,17 +347,17 @@
         
         <!-- Slider -->
         <div class="decoration_slider">
-            <div class="decoration_item  wow fadeInUp">
-              <div class="internal_link no_click after_click"><a>Внутренняя отделка</a></div>
+            <div data-t" class="decoration_item  wow fadeInUp no_click after_click">
+              <div class="internal_link "><a>Внутренняя отделка</a></div>
             </div>
-            <div class="decoration_item wow fadeInUp" data-wow-delay="0.1s">
-              <div class="external_link no_click "><a>Внешняя отделка</a></div>
+            <div class="decoration_item wow fadeInUp no_clic" data-wow-delay="0.1s">
+              <div class="external_link k"><a>Внешняя отделка</a></div>
             </div>
-            <div class="decoration_item wow fadeInUp" data-wow-delay="0.2s">
-              <div class="rising_link no_click"><a>Выносное остекление</a></div>
+            <div class="decoration_item wow fadeInUp no_click" data-wow-delay="0.2s">
+              <div class="rising_link"><a>Выносное остекление</a></div>
             </div>
-            <div class="decoration_item wow fadeInUp" data-wow-delay="0.3s">
-              <div class="roof_link no_click"><a>Крыша на балкон</a></div>
+            <div class="decoration_item wow fadeInUp no_click" data-wow-delay="0.3s">
+              <div class="roof_link"><a>Крыша на балкон</a></div>
             </div>
         </div>
 
@@ -366,7 +366,7 @@
           <div class="row">
             
             <!-- internal -->
-            <div class="decoration_content_tab">
+            <div  class="decoration_content_tab no_click after_click">
               <div class="col-lg-3 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 no-padding">
                 <div class="decoration_img">
                   <img src="img/decoration/decoration_img.png" alt="">
@@ -424,7 +424,7 @@
             </div> <!-- /internal -->
 
             <!-- external -->
-            <div class="decoration_content_tab">
+             <div  class="decoration_content_tab no_click">
               <div class="col-lg-3 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 no-padding">
                 <div class="decoration_img">
                   <img src="img/decoration/2/decoration2_img.png" alt="" style="margin-top: 3rem;">
@@ -483,7 +483,7 @@
             <!-- .external -->
 
             <!-- rising -->
-            <div class="decoration_content_tab">
+            <div  class="decoration_content_tab no_click">
               <div class="col-lg-3 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 no-padding">
                 <div class="decoration_img">
                   <img src="img/decoration/3/decoration3_img.jpg" alt="" style="margin-top: 3rem;">
@@ -535,7 +535,7 @@
             <!-- /rising -->
 
             <!-- roof -->
-            <div class="decoration_content_tab">
+            <div  class="decoration_content_tab no_click">
               <div class="col-lg-3 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 no-padding">
                 <div class="decoration_img">
                   <img src="img/decoration/4/decoration4_img.png" alt="" style="margin-top: 3rem;">
@@ -734,13 +734,13 @@
             </div>
           </div>
           <div class="col-lg-4 col-lg-offset-3 col-md-5 col-md-offset-1 col-sm-8 col-sm-offset-2 wow fadeInRight">
-       <!--<form class="form main_form" action="#">
+          <form class="form main_form" action="#">
               <h2>Запишитесь сегодня на <br><span>бесплатный замер</span></h2>
               <input class="form-control form_input" name="user_name" required type="text" placeholder="Введите ваше имя">
               <input class="form-control form_input" name="user_phone" required type="text" placeholder="Введите телефон">
               <button class="text-uppercase btn-block button" name="submit" type="submit">Вызвать замерщика!</button>
               <p class="form_notice">Ваши данные конфиденциальны</p>
-            </form> -->
+            </form> 
           </div>
         </div>
       </div>
@@ -918,7 +918,7 @@
                       <h2>Спасибо за обращение! <br>Оставьте свои данные</h2>
                         <input class="form-control form_input" name="user_name" required type="text" placeholder="Введите ваше имя">
                         <input class="form-control form_input" name="user_phone" required type="text" placeholder="Введите телефон">
-                        <button class="text-uppercase btn-block button" name="submit" type="submit">Рассчитать стоимость</button>
+                        <button class="text-uppercase btn_block button" name="submit" type="submit">Рассчитать стоимость</button>
                         <p class="form_notice">Перезвоним в течение 10 минут</p>
                     </form>
                 </div>

@@ -71,6 +71,7 @@
   			}
 	});
 //Timer
+
 	function getTimeRemaining(endtime) {
   	let t = Date.parse(endtime) - Date.parse(new Date()),
     	seconds = Math.floor((t / 1000) % 60),
@@ -78,6 +79,8 @@
     	hours = Math.floor((t / (1000 * 60 * 60)) % 24),
    	 	days = Math.floor(t / (1000 * 60 * 60 * 24));
  	 		return {
+				
+				
     	'total': t,
     	'days': days,
     	'hours': hours,
@@ -86,7 +89,7 @@
   	};
 	}
 
-	function initializeClock(id, endtime) {
+	function initClock(id, endtime) {
   let clock = document.getElementById(id),
     daysSpan = clock.querySelector('.days'),
     hoursSpan = clock.querySelector('.hours'),
@@ -94,7 +97,7 @@
     secondsSpan = clock.querySelector('.seconds');
 
   function updateClock() {
-    var t = getTimeRemaining(endtime);
+    let t = getTimeRemaining(endtime);
 
     daysSpan.innerHTML = t.days;
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
@@ -107,8 +110,89 @@
   }
 
   	updateClock();
-  	var timeinterval = setInterval(updateClock, 1000);
+  	let timeinterval = setInterval(updateClock, 1000);
 	}
 
+	let  deadline = new Date(Date.parse('2019-07-04') + 15 * 24 * 60 * 60 * 1000);
 
+	initClock('clockdiv', deadline);		
+
+
+//Glazing tabs
+ 
+let glazingBlock = document.querySelectorAll('.glazing_block'),
+      glazingSlider = document.querySelector('.glazing_slider'),
+      rowContent = document.querySelectorAll('.row_content');
+
+     
+  function hideRowContent(a) {
+	  for (let i = a; i < rowContent.length; i++) {
+      rowContent[i].classList.remove('show');
+	    rowContent[i].classList.add('hide');
+    }
+  }
+
+  hideRowContent(1);
+
+
+  function showRowContent(b) {
+    if (rowContent[b].classList.contains('hide')) {
+      rowContent[b].classList.remove('hide');
+	    rowContent[b].classList.add('show');
+    }
+  }
+
+
+  glazingSlider.addEventListener('click', function(event) {
+    let target = event.target;
+    if (target && target.classList.contains('glazing_block')) {
+	    for( let i = 0; i < glazingBlock.length; i++) {
+        if (target == glazingBlock[i]) {
+          hideRowContent(0);
+          showRowContent(i);
+          break;
+        }
+      } 
+    }      
+  }); 
+  //_Decoration tabs
+
+	let decorItem = document.querySelectorAll('.decoration_item'),
+      decorationSlider = document.querySelector('.decoration_slider'),
+      decorContent = document.querySelectorAll('.decoration_content_tab');
+
+     
+  function hideItemContent(a) {
+	  for (let i = a; i < decorContent.length; i++) {
+      decorContent[i].classList.remove('show');
+	    decorContent[i].classList.add('hide');
+    }
+  }
+
+  
+  hideItemContent(1);
+
+
+  function showItemContent(b) {
+    if (decorContent[b].classList.contains('hide')) {
+        decorContent[b].classList.remove('hide');
+	    decorContent[b].classList.add('show');
+		
+    }
+  }
+
+
+  decorationSlider.addEventListener('click', function(event) {
+    let target = event.target;
+    if (target && target.classList.contains('decoration_item')) {
+	    for( let i = 0; i < decorItem.length; i++) {
+        if (target == decorItem[i]) {
+          hideItemContent(0);
+          showItemContent(i);
+          break;
+        }
+      } 
+    }      
+  }); 
+	
 });
